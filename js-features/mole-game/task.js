@@ -5,22 +5,22 @@ const holes = [...document.querySelectorAll('.hole')];
 let deadMoles = 0;
 let missedHoles = 0;
 
-const looper = () => {
-    for (let i = 0; i < holes.length; i++) {
-        let currentHole = document.getElementById(`hole${i+1}`);
-        currentHole.onclick = function() {
-            if(currentHole.classList.contains('hole_has-mole')) {
-                ++deadMoles;
-                killedMoles.textContent = deadMoles;
-            } else {
-                ++missedHoles;
-                missedMoles.textContent = missedHoles;
-            }
-        }
+const incrementor = (currentHole) => {
+    if (currentHole.classList.contains('hole_has-mole')) {
+        ++deadMoles;
+        killedMoles.textContent = deadMoles;
+    } else {
+        ++missedHoles;
+        missedMoles.textContent = missedHoles;
     }
 }
 
-const gameResetter = () => {
+for (let i = 0; i < holes.length; i++) {
+    let currentHole = document.getElementById(`hole${i + 1}`);
+    currentHole.addEventListener('click', () => incrementor(currentHole));
+    }
+
+const gameReset = () => {
     deadMoles = 0;
     killedMoles.textContent = deadMoles;
     missedHoles = 0;
@@ -28,7 +28,7 @@ const gameResetter = () => {
 }
 
 const gameOver = (message) => {
-    gameResetter();
+    gameReset();
     alert(message);
 }
 
@@ -42,7 +42,7 @@ const counter = () => {
 }
 
 const fnHandler = () => {
-    looper();
+    incrementor();
     counter();
 }
 
