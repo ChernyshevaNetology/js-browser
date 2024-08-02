@@ -15,10 +15,14 @@ const incrementor = (currentHole) => {
     }
 }
 
-for (let i = 0; i < holes.length; i++) {
-    let currentHole = document.getElementById(`hole${i + 1}`);
-    currentHole.addEventListener('click', () => incrementor(currentHole));
+const counter = () => {
+    if(deadMoles === 10) {
+        gameOver('Победа!');
     }
+    if(missedHoles === 5) {
+        gameOver('Вы проиграли!');
+    }
+}
 
 const gameReset = () => {
     deadMoles = 0;
@@ -32,18 +36,24 @@ const gameOver = (message) => {
     alert(message);
 }
 
-const counter = () => {
-    if(deadMoles === 10) {
-        gameOver('Победа!');
-    }
-    if(missedHoles === 5) {
-        gameOver('Вы проиграли!');
-    }
-}
-
 const fnHandler = () => {
     incrementor();
     counter();
 }
 
-holes.forEach(item => item.addEventListener('click', fnHandler));
+for (let i = 0; i < holes.length; i++) {
+    let currentHole = document.getElementById(`hole${i + 1}`);
+    currentHole.addEventListener('click', fnHandler);
+}
+
+
+
+
+
+
+
+
+
+
+
+

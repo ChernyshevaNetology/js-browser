@@ -3,7 +3,8 @@ const downCount = document.getElementById('timer');
 let count = +downCount.textContent;
 
 const countDown = () => {
-    downCount.textContent = --count;
+    --count;
+    downCount.textContent = count.toString();
     if(count === 0) {
         clearInterval(timerId);
         alert('Вы победили в конкурсе!');
