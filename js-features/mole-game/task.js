@@ -36,14 +36,14 @@ const gameOver = (message) => {
     alert(message);
 }
 
-const fnHandler = () => {
-    incrementor();
+const fnHandler = (currentHole) => {
+    incrementor(currentHole);
     counter();
 }
 
 for (let i = 0; i < holes.length; i++) {
     let currentHole = document.getElementById(`hole${i + 1}`);
-    currentHole.addEventListener('click', fnHandler);
+    currentHole.addEventListener('click', () => fnHandler(currentHole));
 }
 
 
