@@ -5,35 +5,31 @@ const prevArrow = document.querySelector('.slider__arrow_prev');
 const nextArrow = document.querySelector('.slider__arrow_next');
 
 let currentImg = 0;
-let currentDot = 0;
-dots[currentDot].classList.add('slider__dot_active');
+let currentDot = 0; // зачем тебе currentDot? Если currentImg - будет по тому же индексу?
+// dots[currentDot].classList.add('slider__dot_active');
 
 const activeStatusRemoved = () => {
     slidingImg[currentImg].classList.remove('slider__item_active');
-    dots[currentDot].classList.remove('slider__dot_active');
+    // dots[currentDot].classList.remove('slider__dot_active'); // излишне
     }
 
 const activeStatusAdded = () => {
     slidingImg[currentImg].classList.add('slider__item_active');
-    dots[currentDot].classList.add('slider__dot_active');
+    // dots[currentDot].classList.add('slider__dot_active'); // это не надо ты строчкой выше уже все вычислил, здесь тоже самое
 }
 
 const dotClicker = (event) => {
-    if (!event.target.classList.contains('slider__dot_active')) {
-        const clickedDot = event.target;
-        const dotIndex = dots.indexOf(clickedDot);
-        dots[dotIndex].classList.add('slider__dot_active');
-    }
+
 }
 
 const nextCounter = () => {
     currentImg = (currentImg + 1) % slidingImg.length;
-    currentDot = (currentDot + 1) % dots.length;
+    // currentDot = (currentDot + 1) % dots.length;
 }
 
 const prevCounter = () => {
     currentImg = (currentImg - 1 + slidingImg.length) % slidingImg.length;
-    currentDot = (currentDot - 1 + dots.length) % dots.length;
+    // currentDot = (currentDot - 1 + dots.length) % dots.length;
 }
 
 const prevSelector = () => {
@@ -50,4 +46,4 @@ const nextSelector = () => {
 
 prevArrow.addEventListener('click', prevSelector);
 nextArrow.addEventListener('click', nextSelector);
-dotEvent.addEventListener('click', dotClicker);
+// dotEvent.addEventListener('click', dotClicker);
