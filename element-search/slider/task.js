@@ -1,10 +1,10 @@
-const slidingImg = [...document.querySelectorAll('.slider__item')];
-const dotsContainer = document.querySelector('.slider__dots');
+const sliderItems = [...document.querySelectorAll('.slider__item')];
+const dotContainer = document.querySelector('.slider__dots');
 const prevArrow = document.querySelector('.slider__arrow_prev');
 const nextArrow = document.querySelector('.slider__arrow_next');
 
-let currentImg = 0;
-const count = slidingImg.length;
+let currentSliderIndex = 0;
+const sliderCount = sliderItems.length;
 
 const createDotElem = (idx) => {
     const dotElem = document.createElement('div');
@@ -17,49 +17,49 @@ const createDotElem = (idx) => {
     return dotElem;
 }
 
-for (let i = 0; i < count; i++) {
-    dotsContainer.appendChild(createDotElem(i));
+for (let i = 0; i < sliderCount; i++) {
+    dotContainer.appendChild(createDotElem(i));
 }
 const dots = [...document.querySelectorAll('.slider__dot')];
 
 const handleDotClick = (event) => {
     const index = +event.target.getAttribute('data-index');
     dots[index].classList.add('slider__dot_active');
-    activeStatusRemoved();
-    currentImg = index;
-    activeStatusAdded();
+    HandleRemoveActiveStatus();
+    currentSliderIndex = index;
+    HandleAddActiveStatus();
 }
 
-const nextCounter = () => {
-    currentImg = (currentImg + 1) % slidingImg.length;
+const handleDisplayNextImage = () => {
+    currentSliderIndex = (currentSliderIndex + 1) % sliderItems.length;
 }
 
-const prevCounter = () => {
-    currentImg = (currentImg - 1 + slidingImg.length) % slidingImg.length;
+const HandleDisplayPrevImage = () => {
+    currentSliderIndex = (currentSliderIndex - 1 + sliderItems.length) % sliderItems.length;
 }
 
-const activeStatusRemoved = () => {
-    slidingImg[currentImg].classList.remove('slider__item_active');
-    dots[currentImg].classList.remove('slider__dot_active');
+const HandleRemoveActiveStatus = () => {
+    sliderItems[currentSliderIndex].classList.remove('slider__item_active');
+    dots[currentSliderIndex].classList.remove('slider__dot_active');
     }
 
-const activeStatusAdded = () => {
-    slidingImg[currentImg].classList.add('slider__item_active');
-    dots[currentImg].classList.add('slider__dot_active');
+const HandleAddActiveStatus = () => {
+    sliderItems[currentSliderIndex].classList.add('slider__item_active');
+    dots[currentSliderIndex].classList.add('slider__dot_active');
     }
 
 const prevSelector = () => {
-    activeStatusRemoved();
-    prevCounter();
-    activeStatusAdded();
+    HandleRemoveActiveStatus();
+    HandleDisplayPrevImage();
+    HandleAddActiveStatus();
     }
 
 const nextSelector = () => {
-    activeStatusRemoved();
-    nextCounter();
-    activeStatusAdded();
+    HandleRemoveActiveStatus();
+    handleDisplayNextImage();
+    HandleAddActiveStatus();
 }
 
 prevArrow.addEventListener('click', prevSelector);
 nextArrow.addEventListener('click', nextSelector);
-dotsContainer.addEventListener('click', handleDotClick);
+dotContainer.addEventListener('click', handleDotClick);
