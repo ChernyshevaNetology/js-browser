@@ -24,42 +24,42 @@ const dots = [...document.querySelectorAll('.slider__dot')];
 
 const handleDotClick = (event) => {
     const index = +event.target.getAttribute('data-index');
-    dots[index].classList.add('slider__dot_active');
-    HandleRemoveActiveStatus();
+    handleAddActiveStatus();
+    handleRemoveActiveStatus();
     currentSliderIndex = index;
-    HandleAddActiveStatus();
+    handleAddActiveStatus();
 }
 
 const handleDisplayNextImage = () => {
     currentSliderIndex = (currentSliderIndex + 1) % sliderItems.length;
 }
 
-const HandleDisplayPrevImage = () => {
+const handleDisplayPrevImage = () => {
     currentSliderIndex = (currentSliderIndex - 1 + sliderItems.length) % sliderItems.length;
 }
 
-const HandleRemoveActiveStatus = () => {
+const handleRemoveActiveStatus = () => {
     sliderItems[currentSliderIndex].classList.remove('slider__item_active');
     dots[currentSliderIndex].classList.remove('slider__dot_active');
     }
 
-const HandleAddActiveStatus = () => {
+const handleAddActiveStatus = () => {
     sliderItems[currentSliderIndex].classList.add('slider__item_active');
     dots[currentSliderIndex].classList.add('slider__dot_active');
     }
 
-const prevSelector = () => {
-    HandleRemoveActiveStatus();
-    HandleDisplayPrevImage();
-    HandleAddActiveStatus();
+const prevArrowSelector = () => {
+    handleRemoveActiveStatus();
+    handleDisplayPrevImage();
+    handleAddActiveStatus();
     }
 
-const nextSelector = () => {
-    HandleRemoveActiveStatus();
+const nextArrowSelector = () => {
+    handleRemoveActiveStatus();
     handleDisplayNextImage();
-    HandleAddActiveStatus();
+    handleAddActiveStatus();
 }
 
-prevArrow.addEventListener('click', prevSelector);
-nextArrow.addEventListener('click', nextSelector);
+prevArrow.addEventListener('click', prevArrowSelector);
+nextArrow.addEventListener('click', nextArrowSelector);
 dotContainer.addEventListener('click', handleDotClick);
