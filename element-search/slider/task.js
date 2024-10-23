@@ -24,7 +24,6 @@ const dots = [...document.querySelectorAll('.slider__dot')];
 
 const handleDotClick = (event) => {
     const index = +event.target.getAttribute('data-index');
-    handleAddActiveStatus();
     handleRemoveActiveStatus();
     currentSliderIndex = index;
     handleAddActiveStatus();
