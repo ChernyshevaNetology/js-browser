@@ -20,11 +20,14 @@ const createDotElem = (idx) => {
 for (let i = 0; i < count; i++) {
     dotsContainer.appendChild(createDotElem(i));
 }
-const dots = [...document.querySelectorAll('slider__dot')];
+const dots = [...document.querySelectorAll('.slider__dot')];
 
 const handleDotClick = (event) => {
     const index = +event.target.getAttribute('data-index');
     dots[index].classList.add('slider__dot_active');
+    activeStatusRemoved();
+    currentImg = index;
+    activeStatusAdded();
 }
 
 const nextCounter = () => {
@@ -37,12 +40,12 @@ const prevCounter = () => {
 
 const activeStatusRemoved = () => {
     slidingImg[currentImg].classList.remove('slider__item_active');
-    //dots[currentImg].classList.remove('slider__dot_active');
+    dots[currentImg].classList.remove('slider__dot_active');
     }
 
 const activeStatusAdded = () => {
     slidingImg[currentImg].classList.add('slider__item_active');
-    //dots[currentImg].classList.add('slider__dot_active');
+    dots[currentImg].classList.add('slider__dot_active');
     }
 
 const prevSelector = () => {
