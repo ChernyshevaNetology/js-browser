@@ -76,8 +76,8 @@ body {
 }
 
 .slider__dot {
-  width: 7px;
-  height: 7px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: #000;
   margin-right: 5px;
