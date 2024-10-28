@@ -8,7 +8,7 @@ const handleButtonExpansion = () => {
 const handleButtonClickAction = (event) => {
     event.preventDefault();
     button.textContent = event.target.textContent;
-    menuItems.classList.toggle('dropdown__list_active');
+    handleButtonExpansion();
 }
 
 button.addEventListener('click', handleButtonExpansion);
