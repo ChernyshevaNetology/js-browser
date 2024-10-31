@@ -12,8 +12,8 @@ const handleTabClickAction = (event) => {
     }
 
 for(let i = 0; i < tabCollection.length; i++) {
-    tabCollection[i].setAttribute('data-index', (i + 1) - 1);
-    contentCollection[i].setAttribute('data-index', (i + 1) - 1);
+    tabCollection[i].setAttribute('data-index', i);
+    contentCollection[i].setAttribute('data-index', i);
 }
 
 const handleTabActivation = () => {
