@@ -19,12 +19,8 @@ class Game {
   registerEvents() {
     document.addEventListener('keydown', function (event) {
       let pressedKey = event.key.toLowerCase();
-      if (pressedKey === this.currentSymbol.textContent.toLowerCase()) {
-        this.success();
-      } else {
-        this.fail();
-      }
-    })
+      (pressedKey === this.currentSymbol.textContent.toLowerCase()) ? this.success() : this.fail();
+    }.bind(this))
   }
 
   success() {
