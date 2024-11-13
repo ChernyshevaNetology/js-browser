@@ -10,7 +10,7 @@ const handleDisplayNextAd = (rotator, timeOut) => {
 }
 
 handleDisplayNextAd ('.rotator .rotator__case', 1000);
-handleDisplayNextAd ('.rotator2 .rotator__case', 1000);
-handleDisplayNextAd ('.rotator3 .rotator__case', 1000);
-handleDisplayNextAd ('.rotator4 .rotator__case', 1000);
-handleDisplayNextAd ('.rotator5 .rotator__case', 1000);
+handleDisplayNextAd ('.rotator2 .rotator__case', 2000);
+handleDisplayNextAd ('.rotator3 .rotator__case', 4000);
+handleDisplayNextAd ('.rotator4 .rotator__case', 3000);
+handleDisplayNextAd ('.rotator5 .rotator__case', 500);
