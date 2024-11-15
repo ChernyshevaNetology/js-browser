@@ -1,11 +1,11 @@
 const handleDisplayNextAd = (rotator, timeOut, isActive, limit) => {
-    if(isActive === false) return;
+    if(!isActive) return;
     const rotatorBlock = [...document.querySelectorAll(rotator)];
     const rotatorLength = rotatorBlock.length;
     let currentIdx = 0;
     let counter = 0;
         const intervalId = setInterval(() => {
-            if(counter >= limit) clearInterval(intervalId);
+            if(counter > limit) clearInterval(intervalId);
         rotatorBlock[currentIdx].classList.remove('rotator__case_active');
         currentIdx = (currentIdx + 1) % rotatorLength;
         rotatorBlock[currentIdx].classList.add('rotator__case_active');
