@@ -1,15 +1,14 @@
 const fontBlock = document.querySelector('.book__control');
 const fontSizeLinks = document.querySelectorAll('.book .font-size');
 const bookBlock = document.querySelector('.book');
-
-const handleClassCleansing = () => {
-        bookBlock.classList.remove('book_fs-small', 'book_fs-big');
-}
+let prevSize = null;
 
 const handleButtonClicking = (event) => {
         event.preventDefault();
         fontSizeLinks.forEach((link) => {
                 if (link.classList.contains('font-size_active')) {
+                        prevSize = link.dataset.size;
+                        bookBlock.classList.remove(`book_fs-${prevSize}`)
                         link.classList.remove('font-size_active');
                 }
         })
@@ -18,11 +17,8 @@ const handleButtonClicking = (event) => {
         const dataSet = event.target.dataset.size;
 
         if (dataSet) {
-                handleClassCleansing();
                 bookBlock.classList.add(`book_fs-${dataSet}`);
 
-                } else {
-                handleClassCleansing();
         }
 }
 fontBlock.addEventListener('click', handleButtonClicking);
