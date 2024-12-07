@@ -8,11 +8,14 @@ const handleButtonClicking = (event) => {
         fontSizeLinks.forEach((link) => {
                 if (link.classList.contains('font-size_active')) {
                         prevSize = link.dataset.size;
-                        bookBlock.classList.remove(`book_fs-${prevSize}`)
                         link.classList.remove('font-size_active');
                 }
         })
         event.target.classList.add('font-size_active');
+
+        if(prevSize) {
+                bookBlock.classList.remove(`book_fs-${prevSize}`);
+        }
 
         const dataSet = event.target.dataset.size;
 
