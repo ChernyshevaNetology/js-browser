@@ -5,6 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <title>Онлайн-читалка</title>
     <link rel="stylesheet" href="task.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -21,7 +24,7 @@
     <div class="book" id="book">
         <div class="book__controls">
             <div class="book__control book__control_font-size">
-                <a href="" class="font-size" data-size="small">A</a>
+                <a href="" class="font-size font-size_small" data-size="small">A</a>
                 <a href="" class="font-size font-size_active" data-size="default">A</a>
                 <a href="" class="font-size font-size_big" data-size="big">A</a>
             </div>
@@ -37,6 +40,19 @@
                 <a href="" class="color bg_color_black" data-bg-color="black"></a>
                 <a href="" class="color bg_color_gray" data-bg-color="gray"></a>
                 <a href="" class="color bg_color_white color_active" data-bg-color="white"></a>
+            </div>
+            <div class="book__control book__control_boldness">
+                <span class="color__title">font weight:</span>
+                <a href="" class="text-size" data-font-weight="light">A</a>
+                <a href="" class="text-size font-weight_active" data-font-weight="normal">A</a>
+                <a href="" class="text-size" data-font-weight="bold">A</a>
+            </div>
+            <div class="book__control book__control_font">
+                <span class="color__title">font style:</span>
+                <a href="" class="text-size font-style_active" data-font-style="normal">A</a>
+                <a href="" class="text-size text-size_italic" data-font-style="italic">A</a>
+                <a href="" class="text-size text-size_underline" data-font-style="underline">A</a>
+                <a href="" class="text-size text-size_capital" data-font-style="capital">A</a>
             </div>
         </div>
         <div class="book__content">

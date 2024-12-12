@@ -46,6 +46,60 @@ body {
   background: white;
 }
 
+.text-size {
+  text-align: center;
+  text-decoration: none;
+  color: whitesmoke;
+  width: 25px;
+  height: 25px;
+  padding: 2px 6px;
+  font-size: 16px;
+  line-height: 16px;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font_weight-light {
+  font-weight: 300;
+  font-style: normal;
+}
+
+.font_weight-normal {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font_weight-bold {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.font-style_active,
+.font-weight_active {
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+}
+
+.font-style_normal {
+
+}
+
+.font_style-italic {
+  font-style: italic;
+}
+
+.font_style-underline {
+  text-decoration: underline;
+}
+
+.font_style-capital {
+  text-transform: uppercase;
+}
+
+
+
 .book__controls {
   background: rgb(63, 63, 63);
   padding: 10px;
@@ -54,7 +108,11 @@ body {
   justify-content: space-around;
   align-items: center;
   color: whitesmoke;
-  font-size: 16px;;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  font-style: normal;
+  text-decoration: none;
 }
 
 .book__control {
@@ -108,7 +166,7 @@ body {
 }
 
 .book {
-  font-family: Georgia;
+  font-family: "Roboto", serif;
 }
 
 .book__content {
@@ -131,3 +189,16 @@ body {
 .text_color_whitesmoke {
   background: whitesmoke;
 }
+
+.text-size_italic {
+  font-style: italic;
+}
+
+.text-size_underline {
+  text-decoration: underline;
+}
+
+.text-size_capital {
+  text-transform: capitalize;
+}
+
