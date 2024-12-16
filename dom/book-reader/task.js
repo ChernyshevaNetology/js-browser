@@ -43,22 +43,24 @@ const handleActiveIconClassChange = (domElement, activeClass, key, classPrefix) 
         }
 }
 
-const handleChangeActiveControlElement = (event, object) => {
-        event.preventDefault(); // так и остается
+const getKeyValue = (event) => {
         const targetObject = event.target.dataset;
         const keyFromArray = Object.keys(targetObject);
-        let key = keyFromArray[0];
+        return keyFromArray[0];
+}
+
+const handleChangeActiveControlElement = (event) => {
+        event.preventDefault();
+        const key = getKeyValue(event);
         handleActiveIconClassChange(controlAttribute[key].domElement, controlAttribute[key].activeClass, key, controlAttribute[key].classPrefix);
-        event.target.classList.add(controlAttribute[key].activeClass); // активный класс должен быть вычислен динамически
+        event.target.classList.add(controlAttribute[key].activeClass);
         const dataSet = event.target.dataset[key];
-        // ключ динамически (не size) а ключ, может быть size, textColor или bgColor или любой из тысячи!
         if (dataSet) {
                 bookBlock.classList.add(`${controlAttribute[key].classPrefix + dataSet}`);
         }
 }
+const domElementsArray = [textSizeBlock, textColorBlock, backgroundColorBlock, fontWeightBlock, fontStyleBlock];
 
-textSizeBlock.addEventListener('click', handleChangeActiveControlElement);
-textColorBlock.addEventListener('click', handleChangeActiveControlElement);
-backgroundColorBlock.addEventListener('click', handleChangeActiveControlElement);
-fontWeightBlock.addEventListener('click', handleChangeActiveControlElement);
-fontStyleBlock.addEventListener('click', handleChangeActiveControlElement);
+domElementsArray.forEach(domElem => {
+        domElem.addEventListener('click', handleChangeActiveControlElement)
+})
