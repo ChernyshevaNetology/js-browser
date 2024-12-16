@@ -7,27 +7,27 @@ const fontStyleBlock = document.querySelector('.book__control_font');
 
 const controlAttribute = {
         size: {
-                domElement: 'textSizeBlock',
+                domElement: textSizeBlock,
                 activeClass: 'font-size_active',
                 classPrefix: 'book_fs-'
         },
         textColor: {
-                domElement: 'textColorBlock',
+                domElement: textColorBlock,
                 activeClass: 'color_active',
                 classPrefix: 'book_color-'
         },
         bgColor: {
-                domElement: 'backgroundColorBlock',
+                domElement: backgroundColorBlock,
                 activeClass: 'color_active',
                 classPrefix: 'book_bg-'
         },
         fontWeight: {
-                domElement: 'fontWeightBlock',
+                domElement: fontWeightBlock,
                 activeClass: 'font-weight_active',
                 classPrefix: 'font_weight-'
         },
         fontStyle: {
-                domElement: 'fontStyleBlock',
+                domElement: fontStyleBlock,
                 activeClass: 'font-style_active',
                 classPrefix: 'text-size_'
         },
